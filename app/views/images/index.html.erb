@@ -14,7 +14,7 @@
       <tr>
         <td>
           <%= link_to image_path(image) do %>
-            <%= image_tag(url_for(image.content), size: '200x200') %>
+            <%= image_tag(url_for(image.thumbnail), size: '200x200') %>
           <% end %>
         </td>
       </tr>
