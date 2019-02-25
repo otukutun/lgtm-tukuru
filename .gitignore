@@ -29,3 +29,6 @@
 # tag
 .tags
 .tags1
+
+# direnv
+.envrc
