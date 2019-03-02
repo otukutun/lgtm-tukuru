@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<div class="image-container">
+<div class="l-center">
   <%= image_tag(url_for(@image.thumbnail)) %>
+</div>
+<div class="l-center markdown-container">
+  <p>Markdown</p>
+</div>
+<div class="l-center markdown-container">
+  <input type="text" value="![LGTM](<%= url_for(@image.thumbnail.service_url) %>)"/>
 </div>
