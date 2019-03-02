@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.all.with_attached_content
   end
 
   # GET /images/1
