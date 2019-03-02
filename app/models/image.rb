@@ -13,7 +13,7 @@ class Image < ApplicationRecord
   def lgtm
     content.variant(combine_options: {
       resize: '600x600',
-      fill: '#101010',
+      fill: '#FFFFFF',
       font: 'Arial',
       pointsize: 80,
       gravity: 'Center',
