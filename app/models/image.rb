@@ -2,6 +2,10 @@ class Image < ApplicationRecord
   has_one_attached :content
   validate :validate_content
 
+  before_create {
+    self.slug =  SecureRandom.hex(20)
+  }
+
   def thumbnail
     content.variant(resize: '600x600').processed
   end

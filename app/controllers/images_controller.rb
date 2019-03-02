@@ -28,8 +28,8 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.json { render :show, status: :created, location: @image }
+        format.html { redirect_to image_path(@image.slug), notice: 'Image was successfully created.' }
+        format.json { render :show, status: :created, location: image_path(@image.slug) }
       else
         format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-        format.json { render :show, status: :ok, location: @image }
+        format.html { redirect_to image_path(@image.slug), notice: 'Image was successfully updated.' }
+        format.json { render :show, status: :ok, location: image_path(@image.slug) }
       else
         format.html { render :edit }
         format.json { render json: @image.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class ImagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
-      @image = Image.find(params[:id])
+      @image = Image.find_by(slug: params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
