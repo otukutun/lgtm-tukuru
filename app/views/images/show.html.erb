@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="l-center">
-  <%= image_tag(url_for(@image.thumbnail)) %>
+  <%= image_tag(url_for(@image.lgtm)) %>
 </div>
 <div class="l-center markdown-container">
   <p>Markdown</p>
 </div>
 <div class="l-center markdown-container">
-  <input type="text" value="![LGTM](<%= polymorphic_url(@image.thumbnail) %>)"/>
+  <input type="text" value="![LGTM](<%= polymorphic_url(@image.lgtm) %>)"/>
 </div>

@@ -32,3 +32,8 @@
 
 # direnv
 .envrc
+
+# For Mac
+.DS_Store
+
+vendor/bundle

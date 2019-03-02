@@ -10,6 +10,17 @@ class Image < ApplicationRecord
     content.variant(resize: '600x600').processed
   end
 
+  def lgtm
+    content.variant(combine_options: {
+      resize: '600x600',
+      fill: '#101010',
+      font: 'Arial',
+      pointsize: 80,
+      gravity: 'Center',
+      draw: "text 0,0 'LGTM'"
+    }).processed
+  end
+
   def validate_content
     unless content.attached?
       errors.add(:content, 'File is empty')
