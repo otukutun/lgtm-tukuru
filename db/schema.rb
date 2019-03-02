@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 2019_02_22_124106) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "slug"
+    t.string "slug", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_images_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
