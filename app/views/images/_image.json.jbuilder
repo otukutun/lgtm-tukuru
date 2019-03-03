@@ -1,3 +1,4 @@
-json.extract! image, :id, :created_at, :updated_at
-json.file_url url_for(image.content.thumbnail)
-json.url image_url(image, format: :json)
+json.id image.slug
+json.image_url polymorphic_url(image.lgtm)
+json.markdown_text "![LGTM](#{polymorphic_url(image.lgtm)})"
+json.url image_url(image.slug)
