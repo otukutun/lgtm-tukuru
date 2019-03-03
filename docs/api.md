@@ -9,7 +9,7 @@ LGTM画像一覧を返すAPI
 
 #### リクエスト
 - params
-  - exclude_ids
+  - exclude_ids[]
     - [任意] 指定したIDを除いて取得する
   - count
     - [任意] 取得件数を指定する. デフォルトは20件. 最大50件取得できる.

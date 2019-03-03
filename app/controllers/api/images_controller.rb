@@ -4,7 +4,26 @@ class API::ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.all.with_attached_content
+    if params[:exclude_ids].present?
+      @images = @images.where.not(slug: params[:exclude_ids])
+    end
+
+    # タイプを指定
+    if params[:type].present? && params[:type] == 'random'
+      @images = @images.order("RANDOM()")
+    else
+      @images = @images.order(id: :desc)
+    end
+
+    # countは最大で50件
+    if params[:count].present? && 0 < params[:count].to_i && params[:count].to_i <= 50
+      @images = @images.limit(params[:count])
+    elsif params[:count].present? && params[:count].to_i > 50
+      @images = @images.limit(50)
+    else
+      @images = @images.limit(20)
+    end
   end
 
   # GET /images/1
