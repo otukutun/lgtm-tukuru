@@ -1,5 +1,5 @@
 .l-container {
-  margin: 0 30px;
+  margin: 0 30px 70px;
 }
 
 .l-header {
@@ -8,8 +8,16 @@
 
 .l-footer {
   position: absolute;
-  margin: 30px 30px 10px;
+  margin: 10px 30px 10px;
+  height: 40px;
   bottom: 0;
+
+  display: flex;
+  justify-content: flex-start;
+
+  div {
+    margin-right: 30px;
+  }
 }
 
 .l-center {
