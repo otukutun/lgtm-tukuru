@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'images#index'
   resources :images, only: %i[index new create show], param: :slug
+
+  namespace :api do
+    resources :images, only: %i[index], param: :slug
+  end
 end
