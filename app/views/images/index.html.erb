@@ -3,7 +3,7 @@
   <% @images.each do |image| %>
     <div class="image-container">
       <%= link_to image_path(image.slug) do %>
-        <%= image_tag(url_for(image.lgtm), size: '200x200') %>
+        <%= image_tag(url_for(image.lgtm_cloudfront_url), size: '200x200') %>
       <% end %>
     </div>
   <% end %>

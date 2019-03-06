@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="l-center">
-  <%= image_tag(url_for(@image.lgtm)) %>
+  <%= image_tag(@image.lgtm_cloudfront_url) %>
 </div>
 <div class="l-center markdown-container">
   <p>Markdown</p>

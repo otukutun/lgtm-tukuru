@@ -38,4 +38,17 @@ class Image < ApplicationRecord
   def valid_image_type?
     %w[image/jpg image/jpeg image/gif image/png].include?(content.blob.content_type)
   end
+
+
+  def cloudfront_host
+    ENV['AWS_CLOUDFRONT_HOST']
+  end
+
+   def lgtm_cloudfront_url
+    return lgtm.service_url unless cloudfront_host
+    return lgtm.service_url unless lgtm.service.is_a?(ActiveStorage::Service::S3Service)
+    uri = URI(lgtm.service_url)
+    path = uri.path.gsub("/#{lgtm.service.bucket.name}", '')
+    "https://#{cloudfront_host}#{path}"
+  end
 end
