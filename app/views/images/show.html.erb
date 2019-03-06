@@ -7,5 +7,5 @@
   <p>Markdown</p>
 </div>
 <div class="l-center markdown-container">
-  <input type="text" value="![LGTM](<%= polymorphic_url(@image.lgtm) %>)"/>
+  <input type="text" value="![LGTM](<%= @image.lgtm_cloudfront_url %>)"/>
 </div>
