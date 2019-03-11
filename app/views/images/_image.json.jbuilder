@@ -1,4 +1,4 @@
 json.id image.slug
-json.image_url image.lgtm_cloudfront_url
-json.markdown_text "![LGTM](#{image.lgtm_cloudfront_url})"
+json.image_url image.file.lgtm.url
+json.markdown_text "![LGTM](#{image.file.lgtm.url})"
 json.url image_url(image.slug)
