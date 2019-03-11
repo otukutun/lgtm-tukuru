@@ -7,6 +7,7 @@ ruby '2.4.2'
 gem 'aws-sdk-s3', require: false
 gem 'rails', '~> 5.2.2'
 gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
