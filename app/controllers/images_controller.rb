@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all.order(id: :desc).with_attached_content
+    @images = Image.all.order(id: :desc)
   end
 
   # GET /images/1

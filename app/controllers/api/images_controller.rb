@@ -4,7 +4,7 @@ class API::ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all.with_attached_content
+    @images = Image.all
     if params[:exclude_ids].present?
       @images = @images.where.not(slug: params[:exclude_ids])
     end
