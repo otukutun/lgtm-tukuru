@@ -1,9 +1,16 @@
 class LgtmUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-
-  # Choose what kind of storage to use for this uploader:
-  # storage :file
   storage :fog
+
+  process resize_to_fit: [600, 600]
+
+  version :lgtm do
+    process :attach_lgtm_text => [600, 600]
+  end
+
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -42,4 +49,20 @@ class LgtmUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def attach_lgtm_text(width, height)
+    manipulate! do |img|
+      img.combine_options do |c|
+        c.resize "#{width}x#{height}"
+        c.fill '#FFFFFF'
+        c.font 'Arial'
+        c.pointsize 80
+        c.gravity 'Center'
+        c.annotate "+0+32", "LGTM"
+      end
+      img
+    end
+  end
 end
