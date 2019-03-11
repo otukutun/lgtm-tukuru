@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="l-center">
-  <%= image_tag(@image.lgtm_cloudfront_url) %>
+  <%= image_tag(@image.file.url) %>
 </div>
 <div class="l-center markdown-container">
   <p>Markdown</p>
 </div>
 <div class="l-center markdown-container">
-  <input type="text" value="![LGTM](<%= @image.lgtm_cloudfront_url %>)"/>
+  <input type="text" value="![LGTM](<%= @image.file.url %>)"/>
 </div>
