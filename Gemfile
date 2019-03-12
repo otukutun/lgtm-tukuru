@@ -6,6 +6,9 @@ ruby '2.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'aws-sdk-s3', require: false
 gem 'rails', '~> 5.2.2'
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
+gem 'file_validators'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

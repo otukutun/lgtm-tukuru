@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all.order(id: :desc).with_attached_content
+    @images = Image.all.order(id: :desc)
   end
 
   # GET /images/1
@@ -69,6 +69,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.fetch(:image, {}).permit(%i[content])
+      params.fetch(:image, {}).permit(%i[file])
     end
 end
