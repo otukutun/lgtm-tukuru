@@ -24,6 +24,15 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    # restrict image uploads.
+    if Image.order(id: :desc).offset(50).limit(1).any? && Image.order(id: :desc).offset(50).limit(1).first.created_at > Time.zone.now.beginning_of_month
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Reached image upload limitation this month.' }
+        format.json { render :index, status: :ok, location: root_path }
+      end
+      return
+    end
+
     @image = Image.new(image_params)
 
     respond_to do |format|
